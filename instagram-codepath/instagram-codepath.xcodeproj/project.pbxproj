@@ -20,6 +20,7 @@
 		D42A3B5A286A4AB100A42391 /* instagram_codepathUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D42A3B59286A4AB100A42391 /* instagram_codepathUITests.m */; };
 		D42A3B5C286A4AB100A42391 /* instagram_codepathUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D42A3B5B286A4AB100A42391 /* instagram_codepathUITestsLaunchTests.m */; };
 		D42A3B89286A557700A42391 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D42A3B88286A557700A42391 /* LoginViewController.m */; };
+		D42A3B8C286A635F00A42391 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D42A3B8B286A635F00A42391 /* HomeViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,8 @@
 		D42A3B5B286A4AB100A42391 /* instagram_codepathUITestsLaunchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = instagram_codepathUITestsLaunchTests.m; sourceTree = "<group>"; };
 		D42A3B87286A557700A42391 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		D42A3B88286A557700A42391 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		D42A3B8A286A635F00A42391 /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		D42A3B8B286A635F00A42391 /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		EFDEFA4684B55369885F3B70 /* Pods-instagram-codepath-instagram-codepathUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-instagram-codepath-instagram-codepathUITests.release.xcconfig"; path = "Target Support Files/Pods-instagram-codepath-instagram-codepathUITests/Pods-instagram-codepath-instagram-codepathUITests.release.xcconfig"; sourceTree = "<group>"; };
 		FBB45A06576E153A4B273E73 /* Pods_instagram_codepath_instagram_codepathUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_instagram_codepath_instagram_codepathUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -180,6 +183,8 @@
 			children = (
 				D42A3B87286A557700A42391 /* LoginViewController.h */,
 				D42A3B88286A557700A42391 /* LoginViewController.m */,
+				D42A3B8A286A635F00A42391 /* HomeViewController.h */,
+				D42A3B8B286A635F00A42391 /* HomeViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -425,6 +430,7 @@
 				D42A3B89286A557700A42391 /* LoginViewController.m in Sources */,
 				D42A3B35286A4AAF00A42391 /* AppDelegate.m in Sources */,
 				D42A3B46286A4AB000A42391 /* main.m in Sources */,
+				D42A3B8C286A635F00A42391 /* HomeViewController.m in Sources */,
 				D42A3B38286A4AAF00A42391 /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

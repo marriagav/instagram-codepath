@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5VR-sq-EZc">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -56,6 +56,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="kMb-M3-5CL"/>
                     <connections>
                         <outlet property="emailField" destination="1um-wW-yIu" id="EZS-f8-shI"/>
                         <outlet property="passwordField" destination="e2a-Wg-gyK" id="TkR-Ma-1Qz"/>
@@ -65,19 +66,28 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="132" y="94"/>
+            <point key="canvasLocation" x="248" y="86"/>
         </scene>
-        <!--View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="3mI-u7-Nbr">
             <objects>
-                <viewController id="2io-7v-fKq" sceneMemberID="viewController">
+                <viewController id="2io-7v-fKq" customClass="HomeViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cTD-fM-HVS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="2ts-Un-2hX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="y16-1a-wNX"/>
+                    <navigationItem key="navigationItem" id="y16-1a-wNX">
+                        <barButtonItem key="leftBarButtonItem" title="Log out" id="nUP-kT-jlI">
+                            <connections>
+                                <action selector="logOutClick:" destination="2io-7v-fKq" id="K1R-Tw-XuO"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="5VR-sq-EZc" kind="presentation" identifier="logoutSegue" modalPresentationStyle="fullScreen" id="lad-4b-weI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mYV-tJ-nr6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -86,7 +96,7 @@
         <!--Navigation Controller-->
         <scene sceneID="KHA-MX-5Nv">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UX1-TE-fUs" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="AuthenticatedViewController" automaticallyAdjustsScrollViewInsets="NO" id="UX1-TE-fUs" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="LMD-Um-mjt">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -100,6 +110,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UOi-7b-iHb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-661" y="815"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="i8j-rV-K1h">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5VR-sq-EZc" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="SCn-se-NkE">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="GES-1t-NV5"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T9P-cV-swp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-662" y="86"/>
         </scene>
     </scenes>
     <resources>

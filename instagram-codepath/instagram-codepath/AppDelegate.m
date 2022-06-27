@@ -6,7 +6,6 @@
 //
 
 #import "AppDelegate.h"
-#import "Parse/Parse.h"
 
 @interface AppDelegate ()
 
@@ -18,14 +17,13 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     ParseClientConfiguration *config = [ParseClientConfiguration  configurationWithBlock:^(id<ParseMutableClientConfiguration> configuration) {
 
-            configuration.applicationId = @"8vMzvztKZIQQvzkv2w9TGiBB1iCl7UYXpFbELPJ7";
-            configuration.clientKey = @"BWqbigMRn0gnGO8wYxrtrBwFSsdGnqgesSdVylfm";
-            configuration.server = @"https://parseapi.back4app.com";
-        }];
+        configuration.applicationId = @"8vMzvztKZIQQvzkv2w9TGiBB1iCl7UYXpFbELPJ7";
+        configuration.clientKey = @"BWqbigMRn0gnGO8wYxrtrBwFSsdGnqgesSdVylfm";
+        configuration.server = @"https://parseapi.back4app.com";
+    }];
 
-        [Parse initializeWithConfiguration:config];
+    [Parse initializeWithConfiguration:config];
 
-        return YES;
     return YES;
 }
 
