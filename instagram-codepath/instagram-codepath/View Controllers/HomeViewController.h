@@ -10,6 +10,7 @@
 #import "PostCell.h"
 #import "Post.h"
 #import "DetailsViewController.h"
+#import "PostViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

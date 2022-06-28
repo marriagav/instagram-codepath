@@ -10,10 +10,17 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol PostViewControllerDelegate
+
+- (void)didPost;
+
+@end
+
 @interface PostViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UIImageView *postImage;
 @property (weak, nonatomic) IBOutlet UITextView *postCaption;
+@property (nonatomic, weak) id<PostViewControllerDelegate> delegate;
 
 @end
 

@@ -202,7 +202,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="insta_camera_btn" id="GuG-fk-OkY">
                             <connections>
-                                <segue destination="wzO-9s-6Or" kind="presentation" modalPresentationStyle="fullScreen" id="LQq-oX-Y1X"/>
+                                <segue destination="wzO-9s-6Or" kind="presentation" identifier="composePost" modalPresentationStyle="fullScreen" id="LQq-oX-Y1X"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -440,6 +440,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="LQq-oX-Y1X"/>
         <segue reference="qjb-Hs-w7u"/>
     </inferredMetricsTieBreakers>
     <resources>

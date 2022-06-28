@@ -7,7 +7,7 @@
 
 #import "HomeViewController.h"
 
-@interface HomeViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface HomeViewController () <PostViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @end
 
@@ -38,7 +38,7 @@
 - (void)refreshData{
     // construct query
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
-//    [query whereKey:@"likesCount" greaterThan:@100];
+    [query orderByDescending:@"createdAt"];
     [query includeKey:@"author"];
     query.limit = 20;
 
@@ -56,7 +56,7 @@
 - (void)_beginRefresh:(UIRefreshControl *)refreshControl {
     // construct query
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
-    // [query whereKey:@"likesCount" greaterThan:@100];
+    [query orderByDescending:@"createdAt"];
     [query includeKey:@"author"];
     query.limit = 20;
 
@@ -97,6 +97,11 @@
     return cell;
 }
 
+- (void)didPost{
+//    Gets called when the user presses the "tweet" button on the "ComposeViewController" view, this controller functions as a delegate of the former
+    [self refreshData];
+}
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -109,6 +114,13 @@
         UINavigationController *navigationController = [segue destinationViewController];
         DetailsViewController *detailVC = (DetailsViewController*)navigationController.topViewController;
         detailVC.post = postToPass;
+    }
+    else if ([segue.identifier isEqual:@"composePost"]){
+//        Case when the segue is to the ComposeViewController (post tweet button is pressed)
+        UINavigationController *navigationController = [segue destinationViewController];
+        PostViewController *composeController = (PostViewController*)navigationController.topViewController;
+        //        Assign delegate of the destination vc
+        composeController.delegate = self;
     }
 }
 

@@ -79,6 +79,7 @@
                 NSLog(@"%@", error);
             }
             else{
+                [self.delegate didPost];
                 [self dismissViewControllerAnimated:YES completion:nil];
             }
         }
