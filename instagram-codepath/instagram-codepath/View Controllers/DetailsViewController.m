@@ -23,6 +23,13 @@
     self.postImage.file = self.post[@"image"];
     self.user = self.post[@"author"];
     self.username.text = self.user.username;
+//    Date Formatting
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.dateFormat = @"MMM d HH:mm y";
+    NSDate *date = self.post.createdAt;
+    NSString *dateString = [formatter stringFromDate:date];
+    self.date.text=dateString;
+//    Load the image
     [self.postImage loadInBackground];
 }
 

@@ -8,6 +8,7 @@
 #import <UIKit/UIKit.h>
 #import "Parse/Parse.h"
 #import "Post.h"
+#import "DateTools.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -20,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) PFUser *user;
 @property (weak, nonatomic) IBOutlet PFImageView *postImage;
 @property (weak, nonatomic) IBOutlet UILabel *username;
+@property (weak, nonatomic) IBOutlet UILabel *date;
 
 - (void)setPost:(Post *)post;
 

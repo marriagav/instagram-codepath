@@ -8,17 +8,21 @@
 #import <UIKit/UIKit.h>
 #import "Post.h"
 #import <Parse/Parse.h>
+#import "DateTools.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @import Parse;
 
 @interface DetailsViewController : UIViewController
+
 @property (strong, nonatomic) Post *post;
 @property (strong, nonatomic) PFUser *user;
 @property (weak, nonatomic) IBOutlet PFImageView *postImage;
 @property (weak, nonatomic) IBOutlet UILabel *username;
 @property (weak, nonatomic) IBOutlet UILabel *caption;
+@property (weak, nonatomic) IBOutlet UILabel *date;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -28,6 +28,7 @@
     self.postImage.file = post[@"image"];
     self.user = post[@"author"];
     self.username.text = self.user.username;
+    self.date.text = self.user.createdAt.shortTimeAgoSinceNow;
     [self.postImage loadInBackground];
 };
 
