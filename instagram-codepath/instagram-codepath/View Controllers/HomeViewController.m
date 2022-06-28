@@ -19,6 +19,8 @@
     self.tableView.dataSource=self;
     self.tableView.delegate=self;
     [self refreshData];
+    // Initialize a UIRefreshControl
+    [self _initializeRefreshControl];
 }
 
 - (IBAction)logOutClick:(id)sender {
@@ -48,6 +50,32 @@
             NSLog(@"%@", error.localizedDescription);
         }
     }];
+}
+
+- (void)_beginRefresh:(UIRefreshControl *)refreshControl {
+    // construct query
+    PFQuery *query = [PFQuery queryWithClassName:@"Post"];
+    // [query whereKey:@"likesCount" greaterThan:@100];
+    query.limit = 20;
+
+    // fetch data asynchronously
+    [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
+        if (posts != nil) {
+            self.postArray = (NSMutableArray *) posts;
+            [self.tableView reloadData];
+        } else {
+            NSLog(@"%@", error.localizedDescription);
+        }
+        [refreshControl endRefreshing];
+    }];
+}
+
+
+- (void)_initializeRefreshControl{
+//    Initialices and inserts the refresh control
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(_beginRefresh:) forControlEvents:UIControlEventValueChanged];
+    [self.tableView insertSubview:refreshControl atIndex:0];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:
