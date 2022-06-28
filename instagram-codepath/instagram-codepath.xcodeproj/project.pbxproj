@@ -23,6 +23,7 @@
 		D42A3B8C286A635F00A42391 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D42A3B8B286A635F00A42391 /* HomeViewController.m */; };
 		D42A3B8F286A6BEB00A42391 /* PostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D42A3B8E286A6BEB00A42391 /* PostViewController.m */; };
 		D42A3B93286A77A900A42391 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = D42A3B92286A77A900A42391 /* Post.m */; };
+		D42A3B9C286AC2C100A42391 /* PostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D42A3B9B286AC2C100A42391 /* PostCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,8 @@
 		D42A3B8E286A6BEB00A42391 /* PostViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostViewController.m; sourceTree = "<group>"; };
 		D42A3B91286A77A900A42391 /* Post.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
 		D42A3B92286A77A900A42391 /* Post.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
+		D42A3B9A286AC2C100A42391 /* PostCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostCell.h; sourceTree = "<group>"; };
+		D42A3B9B286AC2C100A42391 /* PostCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostCell.m; sourceTree = "<group>"; };
 		EFDEFA4684B55369885F3B70 /* Pods-instagram-codepath-instagram-codepathUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-instagram-codepath-instagram-codepathUITests.release.xcconfig"; path = "Target Support Files/Pods-instagram-codepath-instagram-codepathUITests/Pods-instagram-codepath-instagram-codepathUITests.release.xcconfig"; sourceTree = "<group>"; };
 		FBB45A06576E153A4B273E73 /* Pods_instagram_codepath_instagram_codepathUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_instagram_codepath_instagram_codepathUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -153,6 +156,7 @@
 		D42A3B32286A4AAF00A42391 /* instagram-codepath */ = {
 			isa = PBXGroup;
 			children = (
+				D42A3B99286AC29400A42391 /* Views */,
 				D42A3B90286A778500A42391 /* Models */,
 				D42A3B83286A54E800A42391 /* View Controllers */,
 				D42A3B33286A4AAF00A42391 /* AppDelegate.h */,
@@ -205,6 +209,15 @@
 				D42A3B92286A77A900A42391 /* Post.m */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		D42A3B99286AC29400A42391 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D42A3B9A286AC2C100A42391 /* PostCell.h */,
+				D42A3B9B286AC2C100A42391 /* PostCell.m */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -448,6 +461,7 @@
 				D42A3B89286A557700A42391 /* LoginViewController.m in Sources */,
 				D42A3B35286A4AAF00A42391 /* AppDelegate.m in Sources */,
 				D42A3B93286A77A900A42391 /* Post.m in Sources */,
+				D42A3B9C286AC2C100A42391 /* PostCell.m in Sources */,
 				D42A3B8F286A6BEB00A42391 /* PostViewController.m in Sources */,
 				D42A3B46286A4AB000A42391 /* main.m in Sources */,
 				D42A3B8C286A635F00A42391 /* HomeViewController.m in Sources */,
@@ -625,6 +639,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6NKD8S53BH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "instagram-codepath/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -652,6 +667,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 6NKD8S53BH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "instagram-codepath/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

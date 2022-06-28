@@ -65,7 +65,7 @@
     UIImage *editedImage = info[UIImagePickerControllerEditedImage];
 
     // Do something with the images (based on your use case)
-    UIImage *resizedImage = [self _imageWithImage:editedImage scaledToWidth: 250];
+    UIImage *resizedImage = [self _imageWithImage:editedImage scaledToWidth: 500];
     
     self.postImage.image = resizedImage;
     

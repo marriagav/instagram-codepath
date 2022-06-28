@@ -8,6 +8,7 @@ target 'instagram-codepath' do
   # Pods for instagram-codepath
   pod 'Parse'
   pod 'AFNetworking'
+  pod 'Parse/UI'
 
   target 'instagram-codepathTests' do
     inherit! :search_paths
