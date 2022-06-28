@@ -39,6 +39,7 @@
     // construct query
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
 //    [query whereKey:@"likesCount" greaterThan:@100];
+    [query includeKey:@"author"];
     query.limit = 20;
 
     // fetch data asynchronously
@@ -56,6 +57,7 @@
     // construct query
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
     // [query whereKey:@"likesCount" greaterThan:@100];
+    [query includeKey:@"author"];
     query.limit = 20;
 
     // fetch data asynchronously
@@ -95,14 +97,19 @@
     return cell;
 }
 
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqual:@"detailsSegue"]){
+//        Case when the segue is to the DetailsViewController (tweet cell is pressed)
+        NSIndexPath *myIndexPath=self.tableView.indexPathForSelectedRow;
+//        The tweet will be passed through the segue
+        Post *postToPass = self.postArray[myIndexPath.row];
+        UINavigationController *navigationController = [segue destinationViewController];
+        DetailsViewController *detailVC = (DetailsViewController*)navigationController.topViewController;
+        detailVC.post = postToPass;
+    }
 }
-*/
 
 @end
