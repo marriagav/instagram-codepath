@@ -99,7 +99,7 @@
                     <connections>
                         <outlet property="passwordField" destination="e2a-Wg-gyK" id="TkR-Ma-1Qz"/>
                         <outlet property="usernameField" destination="FNq-zz-x2k" id="Lio-rw-Yyw"/>
-                        <segue destination="UX1-TE-fUs" kind="modal" identifier="loginSegue" modalPresentationStyle="fullScreen" id="rur-ED-tKp"/>
+                        <segue destination="avS-J0-zRe" kind="presentation" identifier="loginSegue" modalPresentationStyle="fullScreen" id="FjH-Yt-oG6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -194,6 +194,7 @@
                             <constraint firstItem="5dG-tv-n7h" firstAttribute="leading" secondItem="2ts-Un-2hX" secondAttribute="leading" id="m2U-5O-LlD"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title=" " image="feed_tab" id="EFS-6H-bLy"/>
                     <navigationItem key="navigationItem" title="Home Feed" id="y16-1a-wNX">
                         <barButtonItem key="leftBarButtonItem" title="Log out" id="nUP-kT-jlI">
                             <connections>
@@ -214,6 +215,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mYV-tJ-nr6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="247.82608695652175" y="814.95535714285711"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="wvq-Th-6fz">
+            <objects>
+                <tabBarController storyboardIdentifier="TabBarViewController" id="avS-J0-zRe" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="N1T-LG-3Ms">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="UX1-TE-fUs" kind="relationship" relationship="viewControllers" id="4tg-2u-P93"/>
+                        <segue destination="t2d-US-NpZ" kind="relationship" relationship="viewControllers" id="hbY-JG-0gK"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CXL-Ic-KJH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1188" y="87"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="aHW-il-rtU">
+            <objects>
+                <viewController id="pIV-v6-2nA" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MDQ-UQ-5cb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="6VD-pB-h7L"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="pbv-3j-M6Z"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QQN-Nk-ZXf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3060.8695652173915" y="826.33928571428567"/>
         </scene>
         <!--New Post-->
         <scene sceneID="Ye1-T6-IzF">
@@ -260,7 +295,7 @@
                     <navigationItem key="navigationItem" title="New Post" id="OkX-ZX-tyz">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="V6w-Lc-TqD">
                             <connections>
-                                <segue destination="UX1-TE-fUs" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="qjb-Hs-w7u"/>
+                                <segue destination="avS-J0-zRe" kind="presentation" modalPresentationStyle="fullScreen" id="uvy-mD-bms"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Share" id="ntH-Jr-h8W">
@@ -272,7 +307,7 @@
                     <connections>
                         <outlet property="postCaption" destination="WCy-na-idU" id="uxJ-Zb-9zk"/>
                         <outlet property="postImage" destination="wXL-8T-vKh" id="QPz-aM-QoY"/>
-                        <segue destination="UX1-TE-fUs" kind="presentation" identifier="postSegue" modalPresentationStyle="fullScreen" id="f8p-Jq-kpk"/>
+                        <segue destination="avS-J0-zRe" kind="presentation" identifier="postSegue" modalPresentationStyle="fullScreen" id="57z-gd-ZHZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E9f-F7-U7m" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -350,7 +385,7 @@
                     <navigationItem key="navigationItem" id="70L-yp-ZfX">
                         <barButtonItem key="leftBarButtonItem" title=" " image="chevron.backward" catalog="system" id="nbu-Nm-QSL">
                             <connections>
-                                <segue destination="UX1-TE-fUs" kind="presentation" modalPresentationStyle="fullScreen" id="ika-5G-6ss"/>
+                                <segue destination="avS-J0-zRe" kind="presentation" modalPresentationStyle="fullScreen" id="OX2-MY-855"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -369,6 +404,7 @@
         <scene sceneID="KHA-MX-5Nv">
             <objects>
                 <navigationController storyboardIdentifier="AuthenticatedViewController" automaticallyAdjustsScrollViewInsets="NO" id="UX1-TE-fUs" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="feed_tab" id="UaH-lU-rYz"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="iYn-Pv-Bws"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="LMD-Um-mjt">
@@ -402,10 +438,11 @@
             </objects>
             <point key="canvasLocation" x="-662" y="86"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Item-->
         <scene sceneID="u8t-aT-nqb">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wzO-9s-6Or" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="0Gp-dx-lch"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="73X-pc-iqJ">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -438,14 +475,34 @@
             </objects>
             <point key="canvasLocation" x="-662" y="2264"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="tGH-aJ-IVj">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="t2d-US-NpZ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="profile_tab" id="hm6-Vb-L5A"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wVD-AX-Oco">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="pIV-v6-2nA" kind="relationship" relationship="rootViewController" id="4G9-1b-ZTW"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tO0-Ah-GdE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2150.7246376811595" y="826.33928571428567"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="LQq-oX-Y1X"/>
-        <segue reference="qjb-Hs-w7u"/>
+        <segue reference="4tg-2u-P93"/>
+        <segue reference="uvy-mD-bms"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="PFImageView" width="128" height="128"/>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>
+        <image name="feed_tab" width="25" height="25"/>
         <image name="image_placeholder" width="375" height="375"/>
         <image name="insta_camera_btn" width="25" height="25"/>
         <image name="instagram_logo" width="1132" height="322"/>
