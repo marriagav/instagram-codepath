@@ -39,7 +39,7 @@ static CGFloat _defaultHeight = 60.0;
 
 - (void)setupActivityIndicator{
     activityIndicatorView = [[UIActivityIndicatorView alloc] init];
-    activityIndicatorView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
+    activityIndicatorView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleMedium;
     activityIndicatorView.hidesWhenStopped = true;
     [self addSubview:activityIndicatorView];
 }

@@ -7,7 +7,7 @@
 
 #import "PostViewController.h"
 
-@interface PostViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface PostViewController ()  <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextViewDelegate>
 @end
 
 @implementation PostViewController
@@ -16,6 +16,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self _pictureGestureRecognizer];
+    //    Format the typing area
+    self.postCaption.layer.borderWidth = 0.5f;
+    self.postCaption.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+    self.postCaption.delegate=self;
 }
 
 - (void)didTapImage:(UITapGestureRecognizer *)sender{
@@ -34,6 +38,10 @@
     }
 
     [self presentViewController:imagePickerVC animated:YES completion:nil];
+}
+
+- (void)textViewDidChange:(UITextView *)textView{
+    self.typeHere.hidden=(textView.text.length>0);
 }
 
 - (void)_pictureGestureRecognizer{

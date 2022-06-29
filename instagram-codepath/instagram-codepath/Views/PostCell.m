@@ -12,6 +12,9 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    self.profilePicture.layer.cornerRadius = self.profilePicture.frame.size.height/2;
+    self.profilePicture.layer.borderWidth = 0;
+    self.profilePicture.clipsToBounds=YES;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -28,8 +31,12 @@
     self.postImage.file = post[@"image"];
     self.user = post[@"author"];
     self.username.text = self.user.username;
+    self.profilePicture.file = self.user[@"profileImage"];
     self.date.text = self.post.createdAt.shortTimeAgoSinceNow;
     [self.postImage loadInBackground];
+    if (self.profilePicture.file){
+        [self.profilePicture loadInBackground];
+    }
 };
 
 @end

@@ -24,6 +24,7 @@
 		D42A3B8F286A6BEB00A42391 /* PostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D42A3B8E286A6BEB00A42391 /* PostViewController.m */; };
 		D42A3B93286A77A900A42391 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = D42A3B92286A77A900A42391 /* Post.m */; };
 		D42A3B9C286AC2C100A42391 /* PostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D42A3B9B286AC2C100A42391 /* PostCell.m */; };
+		D4687F69286CCF1800F7CA00 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4687F68286CCF1800F7CA00 /* ProfileViewController.m */; };
 		D4E9ECC6286B617800A5721B /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E9ECC5286B617800A5721B /* DetailsViewController.m */; };
 		D4E9ECC9286BC7B800A5721B /* InfiniteScrollActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E9ECC8286BC7B800A5721B /* InfiniteScrollActivityView.m */; };
 /* End PBXBuildFile section */
@@ -78,6 +79,8 @@
 		D42A3B92286A77A900A42391 /* Post.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Post.m; sourceTree = "<group>"; };
 		D42A3B9A286AC2C100A42391 /* PostCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostCell.h; sourceTree = "<group>"; };
 		D42A3B9B286AC2C100A42391 /* PostCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostCell.m; sourceTree = "<group>"; };
+		D4687F67286CCF1800F7CA00 /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		D4687F68286CCF1800F7CA00 /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		D4E9ECC4286B617800A5721B /* DetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
 		D4E9ECC5286B617800A5721B /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		D4E9ECC7286BC7B800A5721B /* InfiniteScrollActivityView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InfiniteScrollActivityView.h; sourceTree = "<group>"; };
@@ -206,6 +209,8 @@
 				D42A3B8E286A6BEB00A42391 /* PostViewController.m */,
 				D4E9ECC4286B617800A5721B /* DetailsViewController.h */,
 				D4E9ECC5286B617800A5721B /* DetailsViewController.m */,
+				D4687F67286CCF1800F7CA00 /* ProfileViewController.h */,
+				D4687F68286CCF1800F7CA00 /* ProfileViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -476,6 +481,7 @@
 				D42A3B8F286A6BEB00A42391 /* PostViewController.m in Sources */,
 				D42A3B46286A4AB000A42391 /* main.m in Sources */,
 				D4E9ECC6286B617800A5721B /* DetailsViewController.m in Sources */,
+				D4687F69286CCF1800F7CA00 /* ProfileViewController.m in Sources */,
 				D42A3B8C286A635F00A42391 /* HomeViewController.m in Sources */,
 				D42A3B38286A4AAF00A42391 /* SceneDelegate.m in Sources */,
 			);

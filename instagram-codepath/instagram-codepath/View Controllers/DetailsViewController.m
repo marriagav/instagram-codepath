@@ -15,6 +15,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+//    Format the profile picture
+    self.profilePicture.layer.cornerRadius = self.profilePicture.frame.size.height/2;
+    self.profilePicture.layer.borderWidth = 0;
+    self.profilePicture.clipsToBounds=YES;
     [self _setUpLabels];
 }
 
@@ -31,6 +35,11 @@
     self.date.text=dateString;
 //    Load the image
     [self.postImage loadInBackground];
+    //  Set the profile picture
+    self.profilePicture.file = self.user[@"profileImage"];
+    if (self.profilePicture.file){
+        [self.profilePicture loadInBackground];
+    }
 }
 
 /*

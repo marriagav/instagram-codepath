@@ -1,8 +1,8 @@
 //
-//  HomeViewController.h
+//  ProfileViewController.h
 //  instagram-codepath
 //
-//  Created by Miguel Arriaga Velasco on 6/27/22.
+//  Created by Miguel Arriaga Velasco on 6/29/22.
 //
 
 #import <UIKit/UIKit.h>
@@ -10,15 +10,18 @@
 #import "PostCell.h"
 #import "Post.h"
 #import "DetailsViewController.h"
-#import "PostViewController.h"
 #import "InfiniteScrollActivityView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface HomeViewController : UIViewController
+@interface ProfileViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet PFImageView *profileImage;
 @property (strong, nonatomic) NSMutableArray *postArray;
+@property (weak, nonatomic) IBOutlet UILabel *username;
+@property (strong, nonatomic) PFUser *user;
+
 - (void)loadMoreData;
 
 @end
