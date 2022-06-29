@@ -25,6 +25,7 @@
 		D42A3B93286A77A900A42391 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = D42A3B92286A77A900A42391 /* Post.m */; };
 		D42A3B9C286AC2C100A42391 /* PostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D42A3B9B286AC2C100A42391 /* PostCell.m */; };
 		D4E9ECC6286B617800A5721B /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E9ECC5286B617800A5721B /* DetailsViewController.m */; };
+		D4E9ECC9286BC7B800A5721B /* InfiniteScrollActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E9ECC8286BC7B800A5721B /* InfiniteScrollActivityView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,8 @@
 		D42A3B9B286AC2C100A42391 /* PostCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostCell.m; sourceTree = "<group>"; };
 		D4E9ECC4286B617800A5721B /* DetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
 		D4E9ECC5286B617800A5721B /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
+		D4E9ECC7286BC7B800A5721B /* InfiniteScrollActivityView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InfiniteScrollActivityView.h; sourceTree = "<group>"; };
+		D4E9ECC8286BC7B800A5721B /* InfiniteScrollActivityView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InfiniteScrollActivityView.m; sourceTree = "<group>"; };
 		EFDEFA4684B55369885F3B70 /* Pods-instagram-codepath-instagram-codepathUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-instagram-codepath-instagram-codepathUITests.release.xcconfig"; path = "Target Support Files/Pods-instagram-codepath-instagram-codepathUITests/Pods-instagram-codepath-instagram-codepathUITests.release.xcconfig"; sourceTree = "<group>"; };
 		FBB45A06576E153A4B273E73 /* Pods_instagram_codepath_instagram_codepathUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_instagram_codepath_instagram_codepathUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -221,6 +224,8 @@
 			children = (
 				D42A3B9A286AC2C100A42391 /* PostCell.h */,
 				D42A3B9B286AC2C100A42391 /* PostCell.m */,
+				D4E9ECC7286BC7B800A5721B /* InfiniteScrollActivityView.h */,
+				D4E9ECC8286BC7B800A5721B /* InfiniteScrollActivityView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -465,6 +470,7 @@
 			files = (
 				D42A3B89286A557700A42391 /* LoginViewController.m in Sources */,
 				D42A3B35286A4AAF00A42391 /* AppDelegate.m in Sources */,
+				D4E9ECC9286BC7B800A5721B /* InfiniteScrollActivityView.m in Sources */,
 				D42A3B93286A77A900A42391 /* Post.m in Sources */,
 				D42A3B9C286AC2C100A42391 /* PostCell.m in Sources */,
 				D42A3B8F286A6BEB00A42391 /* PostViewController.m in Sources */,

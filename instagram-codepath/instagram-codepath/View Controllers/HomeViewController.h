@@ -11,6 +11,7 @@
 #import "Post.h"
 #import "DetailsViewController.h"
 #import "PostViewController.h"
+#import "InfiniteScrollActivityView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -18,6 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *postArray;
+@property (assign, nonatomic) BOOL isMoreDataLoading;
+- (void)loadMoreData;
 
 @end
 

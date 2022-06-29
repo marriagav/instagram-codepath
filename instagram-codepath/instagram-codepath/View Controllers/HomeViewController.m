@@ -13,14 +13,19 @@
 
 @implementation HomeViewController
 
+bool _isMoreDataLoading = false;
+InfiniteScrollActivityView* _loadingMoreView;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     //  Initiallize delegate and datasource of the tableview to self
     self.tableView.dataSource=self;
     self.tableView.delegate=self;
-    [self refreshData];
+    [self refreshDataWithNPosts:20];
     // Initialize a UIRefreshControl
     [self _initializeRefreshControl];
+    // Initialize a UIRefreshControlBottom
+    [self _initializeRefreshControlB];
 }
 
 - (IBAction)logOutClick:(id)sender {
@@ -35,12 +40,12 @@
     }];
 }
 
-- (void)refreshData{
+- (void)refreshDataWithNPosts:(int) numberOfPosts{
     // construct query
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
     [query orderByDescending:@"createdAt"];
     [query includeKey:@"author"];
-    query.limit = 20;
+    query.limit = numberOfPosts;
 
     // fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
@@ -58,7 +63,7 @@
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
     [query orderByDescending:@"createdAt"];
     [query includeKey:@"author"];
-    query.limit = 20;
+    query.limit = (int)self.postArray.count;
 
     // fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
@@ -80,6 +85,19 @@
     [self.tableView insertSubview:refreshControl atIndex:0];
 }
 
+- (void)_initializeRefreshControlB{
+//    Initialices and inserts the refresh control
+    // Set up Infinite Scroll loading indicator
+    CGRect frame = CGRectMake(0, self.tableView.contentSize.height, self.tableView.bounds.size.width, InfiniteScrollActivityView.defaultHeight);
+    _loadingMoreView = [[InfiniteScrollActivityView alloc] initWithFrame:frame];
+    _loadingMoreView.hidden = true;
+    [self.tableView addSubview:_loadingMoreView];
+    
+    UIEdgeInsets insets = self.tableView.contentInset;
+    insets.bottom += InfiniteScrollActivityView.defaultHeight;
+    self.tableView.contentInset = insets;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:
     (NSInteger)section{
 //    return amount of tweets in the tweetArray
@@ -99,8 +117,42 @@
 
 - (void)didPost{
 //    Gets called when the user presses the "tweet" button on the "ComposeViewController" view, this controller functions as a delegate of the former
-    [self refreshData];
+    [self refreshDataWithNPosts:(int)self.postArray.count+1];
 }
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    if(indexPath.row + 1 == [self.postArray count]){
+        [self loadMoreData];
+    }
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if(!_isMoreDataLoading){
+            // Calculate the position of one screen length before the bottom of the results
+            int scrollViewContentHeight = self.tableView.contentSize.height;
+            int scrollOffsetThreshold = scrollViewContentHeight - self.tableView.bounds.size.height;
+            
+            // When the user has scrolled past the threshold, start requesting
+            if(scrollView.contentOffset.y > scrollOffsetThreshold && self.tableView.isDragging) {
+                _isMoreDataLoading = true;
+                
+                // Update position of loadingMoreView, and start loading indicator
+                CGRect frame = CGRectMake(0, self.tableView.contentSize.height, self.tableView.bounds.size.width, InfiniteScrollActivityView.defaultHeight);
+                _loadingMoreView.frame = frame;
+                [_loadingMoreView startAnimating];
+                
+                // Code to load more results
+                [self loadMoreData];
+            }
+        }
+}
+
+- (void)loadMoreData{
+    int postsToAdd = (int)[self.postArray count] + 20;
+    [self refreshDataWithNPosts: postsToAdd];
+    [_loadingMoreView stopAnimating];
+}
+
 
 #pragma mark - Navigation
 
