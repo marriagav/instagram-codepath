@@ -66,6 +66,8 @@
 }
 
 - (IBAction)postImage:(id)sender {
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    self.shareButton.enabled = false;
     [Post postUserImage:self.postImage.image withCaption:self.postCaption.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
             if (error){
                 NSLog(@"%@", error);
@@ -74,6 +76,7 @@
                 [self.delegate didPost];
                 [self dismissViewControllerAnimated:YES completion:nil];
             }
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
         }
     ];
 }

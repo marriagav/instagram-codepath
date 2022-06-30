@@ -436,6 +436,7 @@
                     <connections>
                         <outlet property="postCaption" destination="WCy-na-idU" id="uxJ-Zb-9zk"/>
                         <outlet property="postImage" destination="wXL-8T-vKh" id="QPz-aM-QoY"/>
+                        <outlet property="shareButton" destination="ntH-Jr-h8W" id="gla-U5-Wue"/>
                         <outlet property="typeHere" destination="aXC-CL-gof" id="Ape-h5-QKB"/>
                         <segue destination="avS-J0-zRe" kind="presentation" identifier="postSegue" modalPresentationStyle="fullScreen" id="57z-gd-ZHZ"/>
                     </connections>

@@ -8,6 +8,7 @@
 #import <UIKit/UIKit.h>
 #import "Post.h"
 #import "Algos.h"
+#import "MBProgressHUD.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -23,6 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UITextView *postCaption;
 @property (nonatomic, weak) id<PostViewControllerDelegate> delegate;
 @property (weak, nonatomic) IBOutlet UILabel *typeHere;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *shareButton;
 
 @end
 

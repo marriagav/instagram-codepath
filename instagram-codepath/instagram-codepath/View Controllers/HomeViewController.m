@@ -163,29 +163,38 @@ InfiniteScrollActivityView* _loadingMoreView;
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqual:@"detailsSegue"]){
-//        Case when the segue is to the DetailsViewController (tweet cell is pressed)
-        NSIndexPath *myIndexPath=self.tableView.indexPathForSelectedRow;
-//        The tweet will be passed through the segue
-        Post *postToPass = self.postArray[myIndexPath.row];
-        UINavigationController *navigationController = [segue destinationViewController];
-        DetailsViewController *detailVC = (DetailsViewController*)navigationController.topViewController;
-        detailVC.post = postToPass;
-    }
-    else if ([segue.identifier isEqual:@"composePost"]){
-//        Case when the segue is to the ComposeViewController (post tweet button is pressed)
-        UINavigationController *navigationController = [segue destinationViewController];
-        PostViewController *composeController = (PostViewController*)navigationController.topViewController;
-        //        Assign delegate of the destination vc
-        composeController.delegate = self;
-    }
-    else if ([segue.identifier isEqual:@"profileSegue"]){
-//        Case when the segue is to the profile view (profile picture is pressed)
-        UINavigationController *navigationController = [segue destinationViewController];
-        ProfileViewController *profileVC = (ProfileViewController*)navigationController.topViewController;
-        PFUser *userToPass = sender;
-        profileVC.user = userToPass;
-    }
+    
+    NSString *key = segue.identifier;
+
+    void (^selectedCase)(void) = @{
+        @"detailsSegue" : ^{
+            //        Case when the segue is to the DetailsViewController (tweet cell is pressed)
+            NSIndexPath *myIndexPath=self.tableView.indexPathForSelectedRow;
+            //        The tweet will be passed through the segue
+            Post *postToPass = self.postArray[myIndexPath.row];
+            UINavigationController *navigationController = [segue destinationViewController];
+            DetailsViewController *detailVC = (DetailsViewController*)navigationController.topViewController;
+            detailVC.post = postToPass;
+        },
+        @"composePost" : ^{
+    //        Case when the segue is to the ComposeViewController (post tweet button is pressed)
+            UINavigationController *navigationController = [segue destinationViewController];
+            PostViewController *composeController = (PostViewController*)navigationController.topViewController;
+            //        Assign delegate of the destination vc
+            composeController.delegate = self;
+        },
+        @"profileSegue" : ^{
+    //        Case when the segue is to the profile view (profile picture is pressed)
+            UINavigationController *navigationController = [segue destinationViewController];
+            ProfileViewController *profileVC = (ProfileViewController*)navigationController.topViewController;
+            PFUser *userToPass = sender;
+            profileVC.user = userToPass;
+        },
+    }[key];
+
+    if (selectedCase != nil)
+        selectedCase();
+    
 }
 
 @end
