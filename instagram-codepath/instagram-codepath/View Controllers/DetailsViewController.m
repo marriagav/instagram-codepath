@@ -21,6 +21,7 @@
 }
 
 - (void)_setUpLabels {
+//    Sets up the labels of the details view
     self.caption.text = self.post[@"caption"];
     self.postImage.file = self.post[@"image"];
     self.user = self.post[@"author"];

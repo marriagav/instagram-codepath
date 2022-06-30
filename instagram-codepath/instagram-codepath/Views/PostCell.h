@@ -1,7 +1,7 @@
 //
 //  PostCell.h
 //  instagram-codepath
-//
+//  PostCell view for the cells of the tableviews
 //  Created by Miguel Arriaga Velasco on 6/27/22.
 //
 

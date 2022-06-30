@@ -18,6 +18,7 @@
     // Code to initialize Parse
     // (See above section 'Parse `initializeWithConfiguration` vs `setApplicationId`', if you have not already set it up)
     
+//    Persistant sessions
     if (PFUser.currentUser) {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         

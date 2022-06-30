@@ -23,6 +23,7 @@
 }
 
 - (void)didTapImage:(UITapGestureRecognizer *)sender{
+//    Gets called when the user taps on the image placeholder, creating and opening an UIImagePickerController
     UIImagePickerController *imagePickerVC = [UIImagePickerController new];
     
     imagePickerVC.delegate = self;
@@ -41,6 +42,7 @@
 }
 
 - (void)textViewDidChange:(UITextView *)textView{
+//    If the text changes the placeholder dissapears
     self.typeHere.hidden=(textView.text.length>0);
 }
 
@@ -53,10 +55,9 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
     // Get the image captured by the UIImagePickerController
-    //UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
     UIImage *editedImage = info[UIImagePickerControllerEditedImage];
 
-    // Do something with the images (based on your use case)
+    // Resize the image
     UIImage *resizedImage = [Algos imageWithImage:editedImage scaledToWidth: 414];
     
     self.postImage.image = resizedImage;
@@ -66,16 +67,22 @@
 }
 
 - (IBAction)postImage:(id)sender {
+//    Makes the call to post the image to the db
+//    Shows progress hud
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+//    Dissables sharebutton so that the user cant spam it
     self.shareButton.enabled = false;
+//    Makes call
     [Post postUserImage:self.postImage.image withCaption:self.postCaption.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
             if (error){
                 NSLog(@"%@", error);
             }
             else{
+//                Calls the didPost method from the delegate and dissmisses the view controller
                 [self.delegate didPost];
                 [self dismissViewControllerAnimated:YES completion:nil];
             }
+//        hides progress hud
         [MBProgressHUD hideHUDForView:self.view animated:YES];
         }
     ];

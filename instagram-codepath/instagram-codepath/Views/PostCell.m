@@ -38,6 +38,7 @@
 }
 
 - (void) didTapUserProfile:(UITapGestureRecognizer *)sender{
+//    Gets called when the user taps on the user profile
     [self.delegate postCell:self didTap:self.user];
 }
 

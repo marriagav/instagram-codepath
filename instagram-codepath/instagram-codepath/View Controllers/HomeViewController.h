@@ -1,7 +1,7 @@
 //
 //  HomeViewController.h
 //  instagram-codepath
-//
+//  Home feedd view controller
 //  Created by Miguel Arriaga Velasco on 6/27/22.
 //
 

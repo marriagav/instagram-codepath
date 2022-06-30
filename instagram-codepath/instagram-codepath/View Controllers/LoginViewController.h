@@ -1,7 +1,7 @@
 //
 //  LoginViewController.h
 //  instagram-codepath
-//
+//  View controller to manage the user login
 //  Created by Miguel Arriaga Velasco on 6/27/22.
 //
 

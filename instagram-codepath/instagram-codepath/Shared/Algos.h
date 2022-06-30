@@ -1,7 +1,7 @@
 //
 //  Algos.h
 //  instagram-codepath
-//
+//  Algorithms class to use throughout the app
 //  Created by Miguel Arriaga Velasco on 6/29/22.
 //
 

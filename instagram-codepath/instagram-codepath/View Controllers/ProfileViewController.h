@@ -1,7 +1,7 @@
 //
 //  ProfileViewController.h
 //  instagram-codepath
-//
+//  View controller for the profile view
 //  Created by Miguel Arriaga Velasco on 6/29/22.
 //
 

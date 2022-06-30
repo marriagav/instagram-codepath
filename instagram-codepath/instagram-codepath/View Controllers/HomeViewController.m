@@ -13,6 +13,7 @@
 
 @implementation HomeViewController
 
+// Helper variables 
 bool _isMoreDataLoading = false;
 InfiniteScrollActivityView* _loadingMoreView;
 
@@ -29,6 +30,7 @@ InfiniteScrollActivityView* _loadingMoreView;
 }
 
 - (IBAction)logOutClick:(id)sender {
+//    Call to log out the user
     [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
         // PFUser.current() will now be nil
         if (error){
@@ -41,6 +43,7 @@ InfiniteScrollActivityView* _loadingMoreView;
 }
 
 - (void)refreshDataWithNPosts:(int) numberOfPosts{
+//    Refreshes the tableview data with numberOfPosts posts
     // construct query
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
     [query orderByDescending:@"createdAt"];
@@ -59,6 +62,7 @@ InfiniteScrollActivityView* _loadingMoreView;
 }
 
 - (void)_beginRefresh:(UIRefreshControl *)refreshControl {
+//    Refreshes the data using the UIRefreshControl
     // construct query
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
     [query orderByDescending:@"createdAt"];
@@ -100,7 +104,7 @@ InfiniteScrollActivityView* _loadingMoreView;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:
     (NSInteger)section{
-//    return amount of tweets in the tweetArray
+//    return amount of posts in the postArray
         return self.postArray.count;
     }
 
@@ -109,7 +113,7 @@ InfiniteScrollActivityView* _loadingMoreView;
 //    initialize cell (PostCell) to a reusable cell using the PostCell identifier
     PostCell *cell = [tableView
     dequeueReusableCellWithIdentifier: @"PostCell"];
-//    get the tweet and assign it to the cell
+//    get the post and delegate and assign it to the cell
     Post *post = self.postArray[indexPath.row];
     cell.post=post;
     cell.delegate = self;
@@ -117,11 +121,12 @@ InfiniteScrollActivityView* _loadingMoreView;
 }
 
 - (void)didPost{
-//    Gets called when the user presses the "tweet" button on the "ComposeViewController" view, this controller functions as a delegate of the former
+//    Gets called when the user presses the "share" button on the "PostViewController" view, this controller functions as a delegate of the former
     [self refreshDataWithNPosts:(int)self.postArray.count+1];
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+//    Calls load more data when scrolling reaches bottom of the tableView
     if(indexPath.row + 1 == [self.postArray count]){
         [self loadMoreData];
     }
@@ -149,12 +154,14 @@ InfiniteScrollActivityView* _loadingMoreView;
 }
 
 - (void)loadMoreData{
+//    Adds 20 more posts to the tableView, for infinte scrolling
     int postsToAdd = (int)[self.postArray count] + 20;
     [self refreshDataWithNPosts: postsToAdd];
     [_loadingMoreView stopAnimating];
 }
 
 - (void)postCell:(PostCell *)postCell didTap:(PFUser *)user{
+//    Performs segue when the user clicks on a profile image
     [self performSegueWithIdentifier:@"profileSegue" sender:user];
 }
 
@@ -168,7 +175,7 @@ InfiniteScrollActivityView* _loadingMoreView;
 
     void (^selectedCase)(void) = @{
         @"detailsSegue" : ^{
-            //        Case when the segue is to the DetailsViewController (tweet cell is pressed)
+            //        Case when the segue is to the DetailsViewController (post cell is pressed)
             NSIndexPath *myIndexPath=self.tableView.indexPathForSelectedRow;
             //        The tweet will be passed through the segue
             Post *postToPass = self.postArray[myIndexPath.row];
@@ -177,7 +184,7 @@ InfiniteScrollActivityView* _loadingMoreView;
             detailVC.post = postToPass;
         },
         @"composePost" : ^{
-    //        Case when the segue is to the ComposeViewController (post tweet button is pressed)
+    //        Case when the segue is to the PostViewController (make post button is pressed)
             UINavigationController *navigationController = [segue destinationViewController];
             PostViewController *composeController = (PostViewController*)navigationController.topViewController;
             //        Assign delegate of the destination vc

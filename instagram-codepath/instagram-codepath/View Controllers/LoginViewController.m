@@ -19,6 +19,7 @@
 }
 
 - (void)registerUser {
+//    Method that registers the user
     // initialize a user object
     PFUser *newUser = [PFUser user];
     
@@ -28,6 +29,7 @@
     UIImage *image =  [UIImage imageNamed:@"profile_tab"];
     [newUser setObject:[Algos getPFFileFromImage:image] forKey: @"profileImage"];
     
+//    Initialize alert controller
     [self initializeAlertController];
     
     // call sign up function on the object
@@ -44,11 +46,14 @@
 }
 
 - (void)loginUser {
+//    Method that logs the user in
     NSString *username = self.usernameField.text;
     NSString *password = self.passwordField.text;
     
+//    Initialize alert controller
     [self initializeAlertController];
     
+//    Call log in function on the object
     [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser * user, NSError *  error) {
         if (error != nil) {
             NSLog(@"User log in failed: %@", error.localizedDescription);
@@ -70,6 +75,7 @@
 }
 
 - (void)initializeAlertController{
+//    Create the alert controller
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error"
                     message:@"Empty Field"
                     preferredStyle:(UIAlertControllerStyleAlert)];

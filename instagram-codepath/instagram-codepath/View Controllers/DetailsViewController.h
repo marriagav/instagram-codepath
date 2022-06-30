@@ -1,7 +1,7 @@
 //
 //  DetailsViewController.h
 //  instagram-codepath
-//
+//  View controller of the detaiuls view
 //  Created by Miguel Arriaga Velasco on 6/28/22.
 //
 

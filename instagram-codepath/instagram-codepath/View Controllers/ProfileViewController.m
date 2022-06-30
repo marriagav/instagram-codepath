@@ -18,13 +18,16 @@ InfiniteScrollActivityView* _loadingMoreViewP;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    // Set delegate and datasource of the tableview to self
     self.tableView.dataSource=self;
     self.tableView.delegate=self;
+//    Case when the profile view is accessed through the nav bar
     if (self.user == nil){
         self.user = PFUser.currentUser;
+//        Can only change the profile picture if accessed throgh the nav bar
         [self _pictureGestureRecognizer];
     }
+//    Fill tableview and set outlets
     [self refreshDataWithNPosts:20];
     [self setOutlets];
     // Initialize a UIRefreshControlBottom
@@ -32,6 +35,7 @@ InfiniteScrollActivityView* _loadingMoreViewP;
 }
 
 - (void)setOutlets{
+//    Set the outlets for the profile
     self.username.text = self.user.username;
 //  Set the profile picture
     self.profileImage.file = self.user[@"profileImage"];
@@ -49,6 +53,7 @@ InfiniteScrollActivityView* _loadingMoreViewP;
 }
 
 - (void)didTapImage:(UITapGestureRecognizer *)sender{
+//    Creates and opens an UIImagePickerController when the user taps the user image
     UIImagePickerController *imagePickerVC = [UIImagePickerController new];
     
     imagePickerVC.delegate = self;
@@ -69,10 +74,9 @@ InfiniteScrollActivityView* _loadingMoreViewP;
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
     
     // Get the image captured by the UIImagePickerController
-//    UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
     UIImage *editedImage = info[UIImagePickerControllerEditedImage];
 
-    // Do something with the images (based on your use case)
+    // Resize the image
     UIImage *resizedImage = [Algos imageWithImage:editedImage scaledToWidth: 414];
     
     self.profileImage.image = resizedImage;
@@ -83,6 +87,7 @@ InfiniteScrollActivityView* _loadingMoreViewP;
 }
 
 - (void)changeProfilePicture{
+//    Call to change the profile picture in the DB
     [self.user setObject:[Algos getPFFileFromImage:self.profileImage.image] forKey: @"profileImage"];
     [self.user saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         if(error){
@@ -102,6 +107,7 @@ InfiniteScrollActivityView* _loadingMoreViewP;
 }
 
 - (void)refreshDataWithNPosts:(int) numberOfPosts{
+//    Updates tableview with numberOfPosts posts
     // construct query
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
     [query orderByDescending:@"createdAt"];
@@ -134,6 +140,7 @@ InfiniteScrollActivityView* _loadingMoreViewP;
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+//    Infinite scrolling
     if(!_isMoreDataLoadingP){
         // Calculate the position of one screen length before the bottom of the results
         int scrollViewContentHeight = self.tableView.contentSize.height;
@@ -155,6 +162,7 @@ InfiniteScrollActivityView* _loadingMoreViewP;
 }
 
 - (void)loadMoreData{
+//    Add 20 more posts to tableview for infinite scrolling
     int postsToAdd = (int)[self.postArray count] + 20;
     [self refreshDataWithNPosts: postsToAdd];
     [_loadingMoreViewP stopAnimating];
@@ -171,7 +179,7 @@ InfiniteScrollActivityView* _loadingMoreViewP;
 //    initialize cell (PostCell) to a reusable cell using the PostCell identifier
     PostCell *cell = [tableView
     dequeueReusableCellWithIdentifier: @"PostCell"];
-//    get the tweet and assign it to the cell
+//    get the post and assign it to the cell
     Post *post = self.postArray[indexPath.row];
     cell.post=post;
     return cell;

@@ -1,7 +1,7 @@
 //
 //  post.h
 //  instagram-codepath
-//
+//  post class to store information about the post
 //  Created by Miguel Arriaga Velasco on 6/27/22.
 //
 

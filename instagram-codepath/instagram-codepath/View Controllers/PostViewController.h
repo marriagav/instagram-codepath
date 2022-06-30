@@ -1,7 +1,7 @@
 //
 //  PostViewController.h
 //  instagram-codepath
-//
+//  The view controller of the post view 
 //  Created by Miguel Arriaga Velasco on 6/27/22.
 //
 
