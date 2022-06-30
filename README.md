@@ -5,7 +5,7 @@ Instagram app for Meta University codepath course
 
 **Instagram** is a photo sharing app using Parse as its backend.
 
-Time spent: **X** hours spent in total
+Time spent: **18** hours spent in total
 
 ## User Stories
 
@@ -44,14 +44,14 @@ The following **additional** features are implemented:
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
-1.
-2.
+1. How far can you go with shared functions/ how to centralize code from home tableView and profile tableView
+2. Create an APIManager when using parse
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+[Video]()
 
 GIF created with [Kap](https://getkap.co/).
 
@@ -64,10 +64,6 @@ List an 3rd party libraries, icons, graphics, or other assets you used in your a
 - [Parse/UI](https://github.com/parse-community/ParseUI-iOS) - parse UI library
 - [DateTools](https://github.com/MatthewYork/DateTools) - date formatting library
 - [MBProgressHUD](https://github.com/matej/MBProgressHUD) - progress hud library
-
-## Notes
-
-Describe any challenges encountered while building the app.
 
 ## License
 
