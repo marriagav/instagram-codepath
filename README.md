@@ -1,9 +1,9 @@
 # instagram-codepath
 Instagram app for Meta University codepath course
 
-# Project 3 - *Name of App Here*
+# Project 3 - *Instagram*
 
-**Name of your app** is a photo sharing app using Parse as its backend.
+**Instagram** is a photo sharing app using Parse as its backend.
 
 Time spent: **X** hours spent in total
 
@@ -60,6 +60,9 @@ GIF created with [Kap](https://getkap.co/).
 List an 3rd party libraries, icons, graphics, or other assets you used in your app.
 
 - [AFNetworking](https://github.com/AFNetworking/AFNetworking) - networking task library
+- [Parse](https://github.com/parse-community/Parse-SDK-iOS-OSX) - parse library
+- [Parse/UI](https://github.com/parse-community/ParseUI-iOS) - parse UI library
+- [DateTools](https://github.com/MatthewYork/DateTools) - date formatting library
 
 ## Notes
 
