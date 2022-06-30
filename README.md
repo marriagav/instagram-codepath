@@ -30,7 +30,7 @@ The following **optional** features are implemented:
   - [x] Display the profile photo with each post
   - [x] Tapping on a post's username or profile photo goes to that user's profile page
 - [x] Style the login page to look like the real Instagram login page
-- [ ] After the user submits a new post, show a progress HUD while the post is being uploaded to Parse
+- [x] After the user submits a new post, show a progress HUD while the post is being uploaded to Parse
 - [ ] User can comment on a post and see all comments for each post in the post details screen
 - [ ] User can like a post and see number of likes for each post in the post details screen
 - [ ] Style the feed to look like the real Instagram feed
@@ -63,6 +63,7 @@ List an 3rd party libraries, icons, graphics, or other assets you used in your a
 - [Parse](https://github.com/parse-community/Parse-SDK-iOS-OSX) - parse library
 - [Parse/UI](https://github.com/parse-community/ParseUI-iOS) - parse UI library
 - [DateTools](https://github.com/MatthewYork/DateTools) - date formatting library
+- [MBProgressHUD](https://github.com/matej/MBProgressHUD) - progress hud library
 
 ## Notes
 
