@@ -26,7 +26,7 @@
     newUser.username = self.usernameField.text;
     newUser.password = self.passwordField.text;
     UIImage *image =  [UIImage imageNamed:@"profile_tab"];
-    [newUser setObject:[self getPFFileFromImage:image] forKey: @"profileImage"];
+    [newUser setObject:[Algos getPFFileFromImage:image] forKey: @"profileImage"];
     
     [self initializeAlertController];
     
@@ -41,21 +41,6 @@
             [self performSegueWithIdentifier:@"loginSegue" sender:nil];
         }
     }];
-}
-
-- (PFFileObject *)getPFFileFromImage: (UIImage * _Nullable)image {
- 
-    // check if image is not nil
-    if (!image) {
-        return nil;
-    }
-    
-    NSData *imageData = UIImagePNGRepresentation(image);
-    // get image data and check if that is not nil
-    if (!imageData) {
-        return nil;
-    }
-    return [PFFileObject fileObjectWithName:@"image.png" data:imageData];
 }
 
 - (void)loginUser {
@@ -103,16 +88,5 @@
         }];
     }
 }
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

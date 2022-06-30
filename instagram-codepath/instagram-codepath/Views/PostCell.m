@@ -12,15 +12,12 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
-    self.profilePicture.layer.cornerRadius = self.profilePicture.frame.size.height/2;
-    self.profilePicture.layer.borderWidth = 0;
-    self.profilePicture.clipsToBounds=YES;
+    [Algos formatPictureWithRoundedEdges:self.profilePicture];
     [self _pictureGestureRecognizer];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
     // Configure the view for the selected state
 }
 

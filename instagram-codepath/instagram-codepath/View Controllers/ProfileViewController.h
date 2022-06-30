@@ -11,6 +11,7 @@
 #import "Post.h"
 #import "DetailsViewController.h"
 #import "InfiniteScrollActivityView.h"
+#import "Algos.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

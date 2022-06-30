@@ -39,9 +39,7 @@ InfiniteScrollActivityView* _loadingMoreViewP;
         [self.profileImage loadInBackground];
     }
 //    Format the profile picture
-    self.profileImage.layer.cornerRadius = self.profileImage.frame.size.height/2;
-    self.profileImage.layer.borderWidth = 0;
-    self.profileImage.clipsToBounds=YES;
+    [Algos formatPictureWithRoundedEdges:self.profileImage];
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -68,21 +66,6 @@ InfiniteScrollActivityView* _loadingMoreViewP;
     [self presentViewController:imagePickerVC animated:YES completion:nil];
 }
 
-- (UIImage*)_imageWithImage: (UIImage*) sourceImage scaledToWidth: (float) i_width
-{
-    float oldWidth = sourceImage.size.width;
-    float scaleFactor = i_width / oldWidth;
-
-    float newHeight = sourceImage.size.height * scaleFactor;
-    float newWidth = oldWidth * scaleFactor;
-
-    UIGraphicsBeginImageContext(CGSizeMake(newWidth, newHeight));
-    [sourceImage drawInRect:CGRectMake(0, 0, newWidth, newHeight)];
-    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return newImage;
-}
-
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
     
     // Get the image captured by the UIImagePickerController
@@ -90,7 +73,7 @@ InfiniteScrollActivityView* _loadingMoreViewP;
     UIImage *editedImage = info[UIImagePickerControllerEditedImage];
 
     // Do something with the images (based on your use case)
-    UIImage *resizedImage = [self _imageWithImage:editedImage scaledToWidth: 414];
+    UIImage *resizedImage = [Algos imageWithImage:editedImage scaledToWidth: 414];
     
     self.profileImage.image = resizedImage;
     [self changeProfilePicture];
@@ -99,23 +82,8 @@ InfiniteScrollActivityView* _loadingMoreViewP;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (PFFileObject *)getPFFileFromImage: (UIImage * _Nullable)image {
- 
-    // check if image is not nil
-    if (!image) {
-        return nil;
-    }
-    
-    NSData *imageData = UIImagePNGRepresentation(image);
-    // get image data and check if that is not nil
-    if (!imageData) {
-        return nil;
-    }
-    return [PFFileObject fileObjectWithName:@"image.png" data:imageData];
-}
-
 - (void)changeProfilePicture{
-    [self.user setObject:[self getPFFileFromImage:self.profileImage.image] forKey: @"profileImage"];
+    [self.user setObject:[Algos getPFFileFromImage:self.profileImage.image] forKey: @"profileImage"];
     [self.user saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
         if(error){
             NSLog(@"%@", error.localizedDescription);
@@ -208,15 +176,5 @@ InfiniteScrollActivityView* _loadingMoreViewP;
     cell.post=post;
     return cell;
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
