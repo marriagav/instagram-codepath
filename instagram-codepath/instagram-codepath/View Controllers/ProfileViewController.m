@@ -23,9 +23,9 @@ InfiniteScrollActivityView* _loadingMoreViewP;
     self.tableView.delegate=self;
     if (self.user == nil){
         self.user = PFUser.currentUser;
+        [self _pictureGestureRecognizer];
     }
     [self refreshDataWithNPosts:20];
-    [self _pictureGestureRecognizer];
     [self setOutlets];
     // Initialize a UIRefreshControlBottom
     [self _initializeRefreshControlB];
