@@ -15,7 +15,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self _pictureGestureRecognizer];
+    [self pictureGestureRecognizer:self.postImage];
     //    Format the typing area
     self.postCaption.layer.borderWidth = 0.5f;
     self.postCaption.layer.borderColor = [[UIColor lightGrayColor] CGColor];
@@ -44,36 +44,20 @@
     self.typeHere.hidden=(textView.text.length>0);
 }
 
-- (void)_pictureGestureRecognizer{
-//    Method to set up a tap gesture recognizer for the profile picture
+- (void)pictureGestureRecognizer:(UIImageView *)image{
+    //Method to set up a tap gesture recognizer for an image
     UITapGestureRecognizer *imageTapGestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(didTapImage:)];
-    [self.postImage addGestureRecognizer:imageTapGestureRecognizer];
-    [self.postImage setUserInteractionEnabled:YES];
-}
-
-- (UIImage*)_imageWithImage: (UIImage*) sourceImage scaledToWidth: (float) i_width
-{
-    float oldWidth = sourceImage.size.width;
-    float scaleFactor = i_width / oldWidth;
-
-    float newHeight = sourceImage.size.height * scaleFactor;
-    float newWidth = oldWidth * scaleFactor;
-
-    UIGraphicsBeginImageContext(CGSizeMake(newWidth, newHeight));
-    [sourceImage drawInRect:CGRectMake(0, 0, newWidth, newHeight)];
-    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return newImage;
+    [image addGestureRecognizer:imageTapGestureRecognizer];
+    [image setUserInteractionEnabled:YES];
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
-    
     // Get the image captured by the UIImagePickerController
-//    UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
+    //UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
     UIImage *editedImage = info[UIImagePickerControllerEditedImage];
 
     // Do something with the images (based on your use case)
-    UIImage *resizedImage = [self _imageWithImage:editedImage scaledToWidth: 414];
+    UIImage *resizedImage = [Algos imageWithImage:editedImage scaledToWidth: 414];
     
     self.postImage.image = resizedImage;
     
@@ -93,15 +77,5 @@
         }
     ];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

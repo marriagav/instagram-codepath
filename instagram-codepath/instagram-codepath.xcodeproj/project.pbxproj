@@ -25,6 +25,7 @@
 		D42A3B93286A77A900A42391 /* Post.m in Sources */ = {isa = PBXBuildFile; fileRef = D42A3B92286A77A900A42391 /* Post.m */; };
 		D42A3B9C286AC2C100A42391 /* PostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D42A3B9B286AC2C100A42391 /* PostCell.m */; };
 		D4687F69286CCF1800F7CA00 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4687F68286CCF1800F7CA00 /* ProfileViewController.m */; };
+		D4687F6D286D3AF500F7CA00 /* Algos.m in Sources */ = {isa = PBXBuildFile; fileRef = D4687F6C286D3AF500F7CA00 /* Algos.m */; };
 		D4E9ECC6286B617800A5721B /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E9ECC5286B617800A5721B /* DetailsViewController.m */; };
 		D4E9ECC9286BC7B800A5721B /* InfiniteScrollActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E9ECC8286BC7B800A5721B /* InfiniteScrollActivityView.m */; };
 /* End PBXBuildFile section */
@@ -81,6 +82,8 @@
 		D42A3B9B286AC2C100A42391 /* PostCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostCell.m; sourceTree = "<group>"; };
 		D4687F67286CCF1800F7CA00 /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		D4687F68286CCF1800F7CA00 /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		D4687F6B286D3AF500F7CA00 /* Algos.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Algos.h; sourceTree = "<group>"; };
+		D4687F6C286D3AF500F7CA00 /* Algos.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Algos.m; sourceTree = "<group>"; };
 		D4E9ECC4286B617800A5721B /* DetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
 		D4E9ECC5286B617800A5721B /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		D4E9ECC7286BC7B800A5721B /* InfiniteScrollActivityView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = InfiniteScrollActivityView.h; sourceTree = "<group>"; };
@@ -165,6 +168,7 @@
 		D42A3B32286A4AAF00A42391 /* instagram-codepath */ = {
 			isa = PBXGroup;
 			children = (
+				D4687F6A286D3AC000F7CA00 /* Shared */,
 				D42A3B99286AC29400A42391 /* Views */,
 				D42A3B90286A778500A42391 /* Models */,
 				D42A3B83286A54E800A42391 /* View Controllers */,
@@ -233,6 +237,15 @@
 				D4E9ECC8286BC7B800A5721B /* InfiniteScrollActivityView.m */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		D4687F6A286D3AC000F7CA00 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				D4687F6B286D3AF500F7CA00 /* Algos.h */,
+				D4687F6C286D3AF500F7CA00 /* Algos.m */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -473,6 +486,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4687F6D286D3AF500F7CA00 /* Algos.m in Sources */,
 				D42A3B89286A557700A42391 /* LoginViewController.m in Sources */,
 				D42A3B35286A4AAF00A42391 /* AppDelegate.m in Sources */,
 				D4E9ECC9286BC7B800A5721B /* InfiniteScrollActivityView.m in Sources */,

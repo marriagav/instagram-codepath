@@ -145,7 +145,7 @@ InfiniteScrollActivityView* _loadingMoreView;
                 // Code to load more results
                 [self loadMoreData];
             }
-        }
+    }
 }
 
 - (void)loadMoreData{
