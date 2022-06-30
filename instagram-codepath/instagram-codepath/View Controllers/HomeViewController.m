@@ -7,7 +7,7 @@
 
 #import "HomeViewController.h"
 
-@interface HomeViewController () <PostViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface HomeViewController () <PostViewControllerDelegate, UITableViewDataSource, UITableViewDelegate, PostCellDelegate>
 
 @end
 
@@ -63,7 +63,7 @@ InfiniteScrollActivityView* _loadingMoreView;
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
     [query orderByDescending:@"createdAt"];
     [query includeKey:@"author"];
-    query.limit = (int)self.postArray.count;
+    query.limit = 20;
 
     // fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
@@ -112,6 +112,7 @@ InfiniteScrollActivityView* _loadingMoreView;
 //    get the tweet and assign it to the cell
     Post *post = self.postArray[indexPath.row];
     cell.post=post;
+    cell.delegate = self;
     return cell;
 }
 
@@ -153,6 +154,10 @@ InfiniteScrollActivityView* _loadingMoreView;
     [_loadingMoreView stopAnimating];
 }
 
+- (void)postCell:(PostCell *)postCell didTap:(PFUser *)user{
+    [self performSegueWithIdentifier:@"profileSegue" sender:user];
+}
+
 
 #pragma mark - Navigation
 
@@ -173,6 +178,13 @@ InfiniteScrollActivityView* _loadingMoreView;
         PostViewController *composeController = (PostViewController*)navigationController.topViewController;
         //        Assign delegate of the destination vc
         composeController.delegate = self;
+    }
+    else if ([segue.identifier isEqual:@"profileSegue"]){
+//        Case when the segue is to the profile view (profile picture is pressed)
+        UINavigationController *navigationController = [segue destinationViewController];
+        ProfileViewController *profileVC = (ProfileViewController*)navigationController.topViewController;
+        PFUser *userToPass = sender;
+        profileVC.user = userToPass;
     }
 }
 

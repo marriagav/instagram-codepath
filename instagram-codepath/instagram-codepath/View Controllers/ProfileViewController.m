@@ -7,7 +7,7 @@
 
 #import "ProfileViewController.h"
 
-@interface ProfileViewController () <UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate>
+@interface ProfileViewController () <UITableViewDataSource, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @end
 
@@ -21,10 +21,10 @@ InfiniteScrollActivityView* _loadingMoreViewP;
     // Do any additional setup after loading the view.
     self.tableView.dataSource=self;
     self.tableView.delegate=self;
-    [self refreshDataWithNPosts:20];
     if (self.user == nil){
         self.user = PFUser.currentUser;
     }
+    [self refreshDataWithNPosts:20];
     [self _pictureGestureRecognizer];
     [self setOutlets];
     // Initialize a UIRefreshControlBottom
@@ -138,7 +138,7 @@ InfiniteScrollActivityView* _loadingMoreViewP;
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
     [query orderByDescending:@"createdAt"];
     [query includeKey:@"author"];
-    [query whereKey:@"author" equalTo: PFUser.currentUser];
+    [query whereKey:@"author" equalTo: self.user];
     query.limit = numberOfPosts;
 
     // fetch data asynchronously

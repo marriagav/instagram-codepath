@@ -12,6 +12,7 @@
 #import "DetailsViewController.h"
 #import "PostViewController.h"
 #import "InfiniteScrollActivityView.h"
+#import "ProfileViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

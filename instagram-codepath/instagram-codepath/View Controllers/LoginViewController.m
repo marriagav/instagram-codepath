@@ -25,6 +25,8 @@
     // set user properties
     newUser.username = self.usernameField.text;
     newUser.password = self.passwordField.text;
+    UIImage *image =  [UIImage imageNamed:@"profile_tab"];
+    [newUser setObject:[self getPFFileFromImage:image] forKey: @"profileImage"];
     
     [self initializeAlertController];
     
@@ -39,6 +41,21 @@
             [self performSegueWithIdentifier:@"loginSegue" sender:nil];
         }
     }];
+}
+
+- (PFFileObject *)getPFFileFromImage: (UIImage * _Nullable)image {
+ 
+    // check if image is not nil
+    if (!image) {
+        return nil;
+    }
+    
+    NSData *imageData = UIImagePNGRepresentation(image);
+    // get image data and check if that is not nil
+    if (!imageData) {
+        return nil;
+    }
+    return [PFFileObject fileObjectWithName:@"image.png" data:imageData];
 }
 
 - (void)loginUser {
