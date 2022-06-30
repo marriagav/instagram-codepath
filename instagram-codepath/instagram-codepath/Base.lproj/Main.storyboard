@@ -246,9 +246,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="GWe-DC-rKc">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="GWe-DC-rKc">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <scrollView key="tableHeaderView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" id="Pxo-oN-MR3">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="146"/>
@@ -257,8 +256,8 @@
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_tab" translatesAutoresizingMaskIntoConstraints="NO" id="n1q-ZD-TNe" customClass="PFImageView">
                                             <rect key="frame" x="158" y="8" width="98" height="98"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="98" id="QZb-Kn-YHx"/>
-                                                <constraint firstAttribute="width" constant="98" id="WmC-xO-OXT"/>
+                                                <constraint firstAttribute="width" constant="98" id="6CR-Xn-3hN"/>
+                                                <constraint firstAttribute="height" constant="98" id="TGl-Eh-Oql"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rUZ-Lc-ywv">
@@ -271,9 +270,8 @@
                                     <constraints>
                                         <constraint firstItem="rUZ-Lc-ywv" firstAttribute="centerX" secondItem="Pxo-oN-MR3" secondAttribute="centerX" id="2e0-K1-DUu"/>
                                         <constraint firstItem="0xJ-qO-K3g" firstAttribute="bottom" secondItem="rUZ-Lc-ywv" secondAttribute="bottom" constant="10" id="EPh-Sc-BOc"/>
-                                        <constraint firstItem="rUZ-Lc-ywv" firstAttribute="top" secondItem="n1q-ZD-TNe" secondAttribute="bottom" constant="9.5" id="J3I-5m-SGh"/>
-                                        <constraint firstItem="n1q-ZD-TNe" firstAttribute="top" secondItem="0xJ-qO-K3g" secondAttribute="top" constant="8" id="NM3-EV-88d"/>
-                                        <constraint firstItem="n1q-ZD-TNe" firstAttribute="centerX" secondItem="Pxo-oN-MR3" secondAttribute="centerX" id="blX-Se-qVV"/>
+                                        <constraint firstItem="n1q-ZD-TNe" firstAttribute="centerX" secondItem="Pxo-oN-MR3" secondAttribute="centerX" id="UBj-W5-ulw"/>
+                                        <constraint firstItem="n1q-ZD-TNe" firstAttribute="top" secondItem="0xJ-qO-K3g" secondAttribute="top" constant="8" id="UXG-pT-ut6"/>
                                     </constraints>
                                     <viewLayoutGuide key="contentLayoutGuide" id="YFK-a0-v0m"/>
                                     <viewLayoutGuide key="frameLayoutGuide" id="0xJ-qO-K3g"/>
@@ -350,6 +348,12 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6VD-pB-h7L"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="GWe-DC-rKc" firstAttribute="top" secondItem="MDQ-UQ-5cb" secondAttribute="top" id="1Sm-op-kD3"/>
+                            <constraint firstAttribute="bottom" secondItem="GWe-DC-rKc" secondAttribute="bottom" constant="-54" id="edf-gp-783"/>
+                            <constraint firstItem="GWe-DC-rKc" firstAttribute="leading" secondItem="6VD-pB-h7L" secondAttribute="leading" id="fm7-Iz-FUc"/>
+                            <constraint firstItem="GWe-DC-rKc" firstAttribute="trailing" secondItem="6VD-pB-h7L" secondAttribute="trailing" id="ggx-jp-VXO"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="pbv-3j-M6Z"/>
                     <connections>
@@ -623,7 +627,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="LQq-oX-Y1X"/>
         <segue reference="O3Z-TM-tmm"/>
         <segue reference="57z-gd-ZHZ"/>
     </inferredMetricsTieBreakers>
