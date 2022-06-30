@@ -20,6 +20,15 @@
     self.postCaption.layer.borderWidth = 0.5f;
     self.postCaption.layer.borderColor = [[UIColor lightGrayColor] CGColor];
     self.postCaption.delegate=self;
+    // Add gesture recognizer to dissmiss keyboard when clicking on screen
+    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
+    [self.view addGestureRecognizer:gestureRecognizer];
+    gestureRecognizer.cancelsTouchesInView = NO;
+}
+
+- (void)dismissKeyboard{
+//    Dissmiss the keyboard
+     [self.view endEditing:YES];
 }
 
 - (void)didTapImage:(UITapGestureRecognizer *)sender{
